@@ -80,10 +80,3 @@ curl -X DELETE -H "x-api-key: secret" http://localhost:3000/links/home
    - `DATABASE_URL` - `sqlite:/data/snipurl.db?mode=rwc`
 5. Railway detects the `Dockerfile` and deploys automatically
 
-## Stack
-
-- [Axum 0.8](https://github.com/tokio-rs/axum) - web framework
-- [sqlx 0.8](https://github.com/launchbadge/sqlx) - async SQLite
-- [Tokio](https://tokio.rs) - async runtime
-- [serde / serde_json](https://serde.rs) - JSON serialization
-- [rand 0.9](https://docs.rs/rand) - random code generation

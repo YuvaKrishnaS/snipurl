@@ -31,12 +31,15 @@ A fast, self-hosted URL shortener with per-link click analytics. Built with Axum
 ```
 API_KEY=secret cargo run
 ```
+## Testing
 
-Optional env vars:
+API key for all protected endpoints: `secret`
+
+## Optional env vars:
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `API_KEY` | required | Auth header value for protected endpoints |
+| `API_KEY` | `secret` | Auth header value for protected endpoints |
 | `BASE_URL` | `http://localhost:3000` | Prefix used in short URL responses |
 | `DATABASE_URL` | `sqlite:snipurl.db?mode=rwc` | SQLite connection string |
 | `PORT` | `3000` | Port to bind on |
@@ -68,15 +71,3 @@ curl -H "x-api-key: secret" http://localhost:3000/stats/home
 # delete a link
 curl -X DELETE -H "x-api-key: secret" http://localhost:3000/links/home
 ```
-
-## Deploying to Railway
-
-1. Push your project to a GitHub repo
-2. Create a new project on [Railway](https://railway.app) and connect the repo
-3. Add a Volume and mount it at `/data`
-4. Set environment variables:
-   - `API_KEY` - your secret key
-   - `BASE_URL` - your Railway public URL (e.g. `https://snipurl.up.railway.app`)
-   - `DATABASE_URL` - `sqlite:/data/snipurl.db?mode=rwc`
-5. Railway detects the `Dockerfile` and deploys automatically
-
